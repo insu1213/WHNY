@@ -1,13 +1,12 @@
 package com.example.whny
 
+import android.content.Intent
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.whny.Count.CountActivity
 
 class MainActivityViewModel : ViewModel() {
-    val searchData = MutableLiveData<String>()
+    val searchEdit = MutableLiveData<String>()
 
-    fun searchBtnClick() : Boolean {
-        if(searchData.value!!.isEmpty()) return false
-        return true
-    }
+
 }
