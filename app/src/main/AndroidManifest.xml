@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WHNY">
         <activity
-            android:name=".ContentWriteActivity"
+            android:name=".ContentWrite.ContentWriteActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
@@ -20,7 +20,7 @@
             android:exported="true">
 
         </activity>
-        <activity android:name=".CountActivity"
+        <activity android:name=".Count.CountActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

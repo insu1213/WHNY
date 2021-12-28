@@ -1,11 +1,13 @@
-package com.example.whny
+package com.example.whny.Content_Country_Repository
 
-import android.widget.TextView
+import com.example.whny.ContentWrite.ContentWriteActivity
+import com.example.whny.Content_Country_Room.NewYearEntity
+import com.example.whny.Content_Country_Room.RoomDataBase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class RepositoryImplement : RepositoryInterface{
+class RepositoryImplement : RepositoryInterface {
     private var db : RoomDataBase = RoomDataBase.getInstance(context)!!
     private val before_content : String = db.Dao().getContent()
     private val before_country : String = db.Dao().getCountry()

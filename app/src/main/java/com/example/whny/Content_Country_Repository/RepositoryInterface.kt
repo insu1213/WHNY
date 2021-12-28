@@ -1,4 +1,4 @@
-package com.example.whny
+package com.example.whny.Content_Country_Repository
 
 interface RepositoryInterface {
     fun getContent()

@@ -1,4 +1,4 @@
-package com.example.whny
+package com.example.whny.Content_Country_Room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
