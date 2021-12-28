@@ -19,8 +19,8 @@ interface DAO {
     fun getCountry() : String
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun setContent(content : String)
+    fun setContent(content: NewYearEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun setCountry(country : String)
+    fun setCountry(country : NewYearEntity)
 }

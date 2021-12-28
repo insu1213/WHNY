@@ -1,8 +1,9 @@
 package com.example.whny
 
 interface RepositoryInterface {
-    fun getContent(query : String)
-    fun getCountry(query : String)
-    fun setContent(query : String)
-    fun setCountry(query : String)
+    fun getContent()
+    fun getCountry()
+    fun setContent(context : String)
+    fun setCountry(context : String)
+    fun loadData()
 }
