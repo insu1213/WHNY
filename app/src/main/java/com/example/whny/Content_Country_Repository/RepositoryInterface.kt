@@ -1,9 +1,12 @@
 package com.example.whny.Content_Country_Repository
 
+import android.content.Context
+import com.example.whny.UseCase.SelectCountry
+
 interface RepositoryInterface {
-    fun getContent()
-    fun getCountry()
-    fun setContent(context : String)
-    fun setCountry(context : String)
-    fun loadData()
+    fun createContent(context: Context, content : String)
+    fun ReadContent(context: Context)
+    fun ReadCountry(context: Context)
+    fun SelectCountry(context: Context, content : String)
+    fun loadData(context: Context)
 }

@@ -9,9 +9,6 @@ class ContentWriteActivityViewModel(private val repo : RepositoryImplement) : Vi
 
     val value = MutableLiveData<String>()
 
-    fun insert(content:String) {
-        repo.setContent(content)
-    }
 
 }
 
