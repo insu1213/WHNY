@@ -1,9 +1,6 @@
 package com.example.whny
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 
 @Dao
@@ -18,9 +15,9 @@ interface DAO {
     @Query("SELECT country FROM NewYearEntity")
     fun getCountry() : String
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Update(onConflict = OnConflictStrategy.REPLACE)
     fun setContent(content: NewYearEntity)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Update(onConflict = OnConflictStrategy.REPLACE)
     fun setCountry(country : NewYearEntity)
 }

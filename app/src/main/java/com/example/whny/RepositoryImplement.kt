@@ -7,29 +7,33 @@ import kotlinx.coroutines.launch
 
 class RepositoryImplement : RepositoryInterface{
     private var db : RoomDataBase = RoomDataBase.getInstance(context)!!
-    private lateinit var country : String
-    private lateinit var contextList : List<NewYearEntity>
+    private val before_content : String = db.Dao().getContent()
+    private val before_country : String = db.Dao().getCountry()
     private lateinit var context : ContentWriteActivity
 
     override fun getContent() {
         db.Dao().getContent()
+        loadData()
     }
 
     override fun getCountry() {
         db.Dao().getCountry()
+        loadData()
 
     }
 
     override fun setContent(content: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            db.Dao().setContent(NewYearEntity(content, null))
+            db.Dao().setContent(NewYearEntity(content, before_country))
         }
+        loadData()
     }
 
     override fun setCountry(content: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            db.Dao().setContent(NewYearEntity(null, content))
+            db.Dao().setContent(NewYearEntity(before_content, content))
         }
+        loadData()
     }
 
     override fun loadData() {
