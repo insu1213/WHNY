@@ -1,5 +1,6 @@
 package com.example.whny.Content_Country_Repository
 
+import android.content.Context
 import com.example.whny.ContentWrite.ContentWriteActivity
 import com.example.whny.Content_Country_Room.NewYearEntity
 import com.example.whny.Content_Country_Room.RoomDataBase
@@ -7,38 +8,36 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class RepositoryImplement : RepositoryInterface {
-    private var db : RoomDataBase = RoomDataBase.getInstance(context)!!
+class RepositoryImplement(private val db : RoomDataBase) : RepositoryInterface {
     private val before_content : String = db.Dao().getContent()
     private val before_country : String = db.Dao().getCountry()
-    private lateinit var context : ContentWriteActivity
 
-    override fun getContent() {
+    override fun ReadContent(context: Context) {
         db.Dao().getContent()
-        loadData()
+        loadData(context)
     }
 
-    override fun getCountry() {
+    override fun ReadCountry(context: Context) {
         db.Dao().getCountry()
-        loadData()
+        loadData(context)
 
     }
 
-    override fun setContent(content: String) {
+    override fun createContent(context: Context, content : String) {
         CoroutineScope(Dispatchers.IO).launch {
             db.Dao().setContent(NewYearEntity(content, before_country))
         }
-        loadData()
+        loadData(context)
     }
 
-    override fun setCountry(content: String) {
+    override fun SelectCountry(context: Context, content : String) {
         CoroutineScope(Dispatchers.IO).launch {
             db.Dao().setContent(NewYearEntity(before_content, content))
         }
-        loadData()
+        loadData(context)
     }
 
-    override fun loadData() {
+    override fun loadData(context: Context) {
         //여기다 다른 country, content load 도 해줘야할듯
         CoroutineScope(Dispatchers.IO).launch {
             db.Dao().getAll()
